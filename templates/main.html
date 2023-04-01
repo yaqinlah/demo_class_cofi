@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contoh HTML Sederhana</title>
+    <style>
+      /* styling untuk box dan tombol */
+      .container {
+        background: #12b886;
+        background: linear-gradient(to bottom right, #12b886, #00f7c8);
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+      }
+      .input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      input[type="text"] {
+        padding: 5px;
+        margin-right: 10px;
+        width: 60%;
+      }
+      input[type="submit"] {
+        background-color: #ffffff;
+        color: #000000;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      .result-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+      }
+      .result-box {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Box Isi Teks dan Hasil Prediksi</h2>
+      <form method="POST" action="/">
+        <div class="input-container">
+          <label for="isi-teks">Isi Teks:</label>
+          <input type="text" id="isi-teks" name="text">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+      {% if prediction %}
+      <div class="result-container">
+        <h3>Hasil Prediksi:</h3>
+        <div class="result-box">
+          <p>{{ prediction }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
